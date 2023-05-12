@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100vh;
+  padding: 64px 120px;
+  background-color: #abdbe373;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 16px;
+    font-family: 'Roboto Mono', sans-serif;
+    color: #1e82b081;
+    text-transform: lowercase;
+  }
+
+  form {
+    width: 500px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #fff;
+    box-shadow: 1px 6px 6px 1px rgba(0, 0, 0, 0.1);
+    border: 2px solid #1e82b081;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 40px;
+
+    label {
+      color: #fff;
+      font-size: 1px;
+
+      width: 40%;
+      input {
+        padding-left: 16px;
+        height: 30px;
+        font-size: 1rem;
+        border: none;
+        outline: none;
+      }
+    }
+
+    button {
+      padding: 0px 18px;
+      height: 100%;
+      border: none;
+      background-color: #1e82b081;
+      cursor: pointer;
+      color: #444;
+
+      &:hover {
+        background-color: #abdbe373;
+      }
+    }
+  }
+}
+
+.guestList {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  width: 100%;
+}
