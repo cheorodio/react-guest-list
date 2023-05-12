@@ -5,7 +5,8 @@
   "dependencies": {
     "@upleveled/react-scripts": "5.0.11",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sass": "^1.62.1"
   },
   "scripts": {
     "start": "react-scripts start",
