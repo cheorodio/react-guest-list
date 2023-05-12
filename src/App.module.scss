@@ -1,19 +1,20 @@
-.container {
+.pageContainer {
   display: flex;
   align-items: flex-start;
   justify-content: center;
   height: 100vh;
   padding: 64px 120px;
-  background-color: #abdbe373;
+  background: linear-gradient(to right bottom, #abdbe341, #1e82b031);
 }
 
-.box {
+.formContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 
   h1 {
-    font-size: 4rem;
+    font-size: 2.5rem;
     margin-bottom: 16px;
     font-family: 'Roboto Mono', sans-serif;
     color: #1e82b081;
@@ -27,7 +28,7 @@
     align-items: center;
     justify-content: space-around;
     background-color: #fff;
-    box-shadow: 1px 6px 6px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 3px 5px 1px rgba(0, 0, 0, 0.1);
     border: 2px solid #1e82b081;
     border-radius: 5px;
     overflow: hidden;
@@ -36,8 +37,8 @@
     label {
       color: #fff;
       font-size: 1px;
+      width: 45%;
 
-      width: 40%;
       input {
         padding-left: 16px;
         height: 30px;
@@ -48,8 +49,8 @@
     }
 
     button {
-      padding: 0px 18px;
       height: 100%;
+      width: 100px;
       border: none;
       background-color: #1e82b081;
       cursor: pointer;
@@ -67,4 +68,54 @@
   justify-content: space-between;
   gap: 32px;
   width: 100%;
+}
+
+.outputContainer {
+  width: 500px;
+  background-color: #ffffffb3;
+  overflow: scroll;
+  padding: 16px 48px;
+  border-radius: 5px;
+
+  .guestContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #abdbe373;
+    padding: 8px 0px;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      input {
+        font-size: 0.8rem;
+      }
+
+      span {
+        // font-size: 0.5rem;
+        font-size: 0.1px;
+        color: #ffffffb3;
+      }
+    }
+
+    p {
+      font-size: 1.25rem;
+      color: #444;
+      text-align: start;
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
+
+.closeButtonIcon {
+  font-size: 1.5rem;
+  color: #1e82b081;
 }
