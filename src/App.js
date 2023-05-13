@@ -7,7 +7,7 @@ export default function App() {
   const [guestList, setGuestList] = useState([]);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const baseUrl = 'http://localhost:4000';
 
