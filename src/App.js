@@ -7,22 +7,20 @@ export default function App() {
   const [guestList, setGuestList] = useState([]);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const baseUrl = 'http://localhost:4000';
 
   // /////////////////////////////////
   // get all guests
+  async function getGuestList() {
+    const response = await fetch(`${baseUrl}/guests`);
+    const allGuestsData = await response.json();
+    setGuestList(allGuestsData);
+    setIsLoading(false);
+  }
   useEffect(() => {
-    async function getGuestList() {
-      const response = await fetch(`${baseUrl}/guests`);
-      const allGuestsData = await response.json();
-      setGuestList(allGuestsData);
-      setIsLoading(false);
-    }
-    getGuestList().catch((error) => {
-      console.log(error);
-    });
+    getGuestList().catch((error) => console.log(error));
   }, []);
 
   // /////////////////////////////////
@@ -61,16 +59,22 @@ export default function App() {
 
   // //////////////////////////////////
   // Updating a guest attendance status using PUT method
-  async function updateGuest(id) {
+  async function updateGuest(id, status) {
     const response = await fetch(`${baseUrl}/guests/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ attending: true }),
+      body: JSON.stringify({ attending: !status }),
     });
     const updatedGuest = await response.json();
-    return updatedGuest;
+    const updatedGuestList = guestList.filter((i) => {
+      return i.id !== updatedGuest.id;
+    });
+    setGuestList([...guestList], updatedGuestList);
+    getGuestList().catch(() =>
+      console.log('changing attendance status went wrong'),
+    );
   }
 
   // //////////////////////////////////
@@ -106,7 +110,8 @@ export default function App() {
     return (
       <div className={styles.pageContainer}>
         <div className={styles.formContainer} data-test-id="guest">
-          <h1> 🍾 Party Guest List 🎉</h1>
+          <h1>🍾 Party Guest List 🎉</h1>
+
           {/* Input */}
           <form data-test-id="guest" onSubmit={handleSubmit}>
             <label>
@@ -114,6 +119,7 @@ export default function App() {
               <input
                 value={firstName}
                 placeholder="First name"
+                disabled={isLoading}
                 onKeyDown={handleEnter}
                 onChange={(event) => {
                   setFirstName(event.currentTarget.value);
@@ -125,6 +131,7 @@ export default function App() {
               <input
                 value={lastName}
                 placeholder="Last name"
+                disabled={isLoading}
                 onChange={(event) => {
                   setLastName(event.currentTarget.value);
                 }}
@@ -132,26 +139,30 @@ export default function App() {
             </label>
             <button>Add Guest</button>
           </form>
+
           {/* Output */}
           <div className={styles.outputContainer} data-test-id="guest">
-            {guestList.map((guest) => {
-              return (
+            {!isLoading && guestList.length === 0 ? (
+              <p>Loading...</p>
+            ) : (
+              guestList.map((guest) => (
                 <div
                   className={styles.guestContainer}
                   key={`guest--${guest.id}`}
                 >
                   <div>
                     <input
-                      aria-label="Attending"
+                      aria-label={`attenting ${guest.firstName} ${guest.lastName}`}
                       type="checkbox"
-                      onChange={async () => {
-                        await updateGuest();
+                      checked={guest.attending}
+                      onChange={() => {
+                        updateGuest(guest.id, guest.attending).catch((error) =>
+                          console.log(error),
+                        );
                       }}
                     />
                     <span>
-                      {guest.attending === 'true'
-                        ? 'attending'
-                        : 'not attending'}
+                      {guest.attending === true ? 'attending' : 'not attending'}
                     </span>
                   </div>
                   <p>
@@ -159,7 +170,7 @@ export default function App() {
                   </p>
 
                   <button
-                    aria-label="Remove"
+                    aria-label={`remove ${guest.firstName}${guest.lastName}`}
                     onClick={() => {
                       handleDeleteGuest(guest.id);
                     }}
@@ -167,8 +178,8 @@ export default function App() {
                     <AiOutlineCloseCircle className={styles.closeButtonIcon} />
                   </button>
                 </div>
-              );
-            })}
+              ))
+            )}
           </div>
         </div>
         <div className={styles.bottomContainer}>
