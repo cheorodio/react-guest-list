@@ -33,7 +33,7 @@
     border: 2px solid #1e82b081;
     border-radius: 5px;
     overflow: hidden;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 
     label {
       color: #fff;
@@ -78,6 +78,12 @@
   padding: 16px 48px;
   border-radius: 5px;
 
+  p {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #444;
+  }
+
   .guestContainer {
     display: flex;
     justify-content: space-between;
@@ -96,9 +102,9 @@
       }
 
       span {
-        font-size: 0.5rem;
-        // font-size: 0.1px;
-        // color: #ffffffb3;
+        // font-size: 0.5rem;
+        font-size: 0.1px;
+        color: #ffffffb3;
       }
     }
 
@@ -124,7 +130,6 @@
 .bottomContainer {
   height: 10%;
   width: 100%;
-  // background-color: #1e82b081;
   display: flex;
   justify-content: center;
   align-items: center;

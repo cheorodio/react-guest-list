@@ -142,8 +142,8 @@ export default function App() {
 
           {/* Output */}
           <div className={styles.outputContainer} data-test-id="guest">
-            {!isLoading && guestList.length === 0 ? (
-              <p>Loading...</p>
+            {guestList.length === 0 ? (
+              <p>✏️ Guest list is empty, please enter a name</p>
             ) : (
               guestList.map((guest) => (
                 <div
