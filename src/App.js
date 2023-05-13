@@ -120,7 +120,7 @@ export default function App() {
             id="firstName"
             value={firstName}
             placeholder="First name"
-            disabled={isLoading}
+            // disabled={isLoading}
             onKeyDown={handleEnter}
             onChange={(event) => {
               setFirstName(event.currentTarget.value);
@@ -131,7 +131,7 @@ export default function App() {
             id="lastName"
             value={lastName}
             placeholder="Last name"
-            disabled={isLoading}
+            // disabled={isLoading}
             onChange={(event) => {
               setLastName(event.currentTarget.value);
             }}
