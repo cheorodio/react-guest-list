@@ -115,27 +115,29 @@ export default function App() {
         {isLoading ? <div>Loading...</div> : ''}
         {/* Input */}
         <form data-test-id="guest" onSubmit={handleSubmit}>
-          <label htmlFor="firstName">First name</label>
-          <input
-            id="firstName"
-            value={firstName}
-            placeholder="First name"
-            disabled={isLoading}
-            onKeyDown={handleEnter}
-            onChange={(event) => {
-              setFirstName(event.currentTarget.value);
-            }}
-          />
-          <label htmlFor="lastName">Last name</label>
-          <input
-            id="lastName"
-            value={lastName}
-            placeholder="Last name"
-            disabled={isLoading}
-            onChange={(event) => {
-              setLastName(event.currentTarget.value);
-            }}
-          />
+          <label>
+            First name
+            <input
+              value={firstName}
+              placeholder="First name"
+              disabled={isLoading ? true : false}
+              onKeyDown={handleEnter}
+              onChange={(event) => {
+                setFirstName(event.currentTarget.value);
+              }}
+            />
+          </label>
+          <label>
+            Last name
+            <input
+              value={lastName}
+              placeholder="Last name"
+              disabled={isLoading ? true : false}
+              onChange={(event) => {
+                setLastName(event.currentTarget.value);
+              }}
+            />
+          </label>
           <button>Add Guest</button>
         </form>
 
