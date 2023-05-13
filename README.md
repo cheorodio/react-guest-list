@@ -7,8 +7,8 @@ This guest list web app is a React project that allows you to keep track of your
 Access my site at [React Guest List](https://react-guest-list-project.netlify.app/)
 
 ## Screenshots 📷
-<img width="420" alt="Screenshot 2023-05-13 at 17 44 46" src="https://github.com/cheorodio/react-guest-list/assets/121162907/15bc78cd-1c0b-45a3-84f3-54b55741a6a0">
-<img width="420" alt="Screenshot 2023-05-13 at 17 46 57" src="https://github.com/cheorodio/react-guest-list/assets/121162907/e93a544b-1968-47e8-a04a-d575f0f22760">
+<img width="440" alt="Screenshot 2023-05-13 at 17 44 46" src="https://github.com/cheorodio/react-guest-list/assets/121162907/15bc78cd-1c0b-45a3-84f3-54b55741a6a0">
+<img width="440" alt="Screenshot 2023-05-13 at 17 46 57" src="https://github.com/cheorodio/react-guest-list/assets/121162907/e93a544b-1968-47e8-a04a-d575f0f22760">
 
 ## Technologies ⚛️
 I used React and SASS to develop this project
