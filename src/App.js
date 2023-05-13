@@ -12,7 +12,7 @@ export default function App() {
   const baseUrl = 'http://localhost:4000';
 
   // /////////////////////////////////
-  // get all guests
+  // Getting all guests
   async function getGuestList() {
     const response = await fetch(`${baseUrl}/guests`);
     const allGuestsData = await response.json();
@@ -24,7 +24,7 @@ export default function App() {
   }, []);
 
   // /////////////////////////////////
-  // Creating a new guest using POST method
+  // Creating a new guest -- POST method
   async function newGuest() {
     const response = await fetch(`${baseUrl}/guests`, {
       method: 'POST',
@@ -58,7 +58,7 @@ export default function App() {
   };
 
   // //////////////////////////////////
-  // Updating a guest attendance status using PUT method
+  // Updating a guest attendance status -- PUT method
   async function updateGuest(id, status) {
     const response = await fetch(`${baseUrl}/guests/${id}`, {
       method: 'PUT',
@@ -78,7 +78,7 @@ export default function App() {
   }
 
   // //////////////////////////////////
-  // Deleting a guest using DELETE method
+  // Deleting a guest from list -- DELETE method
   function handleDeleteGuest(id) {
     const deleteGuest = async () => {
       const response = await fetch(`${baseUrl}/guests/${id}`, {
@@ -105,7 +105,7 @@ export default function App() {
   // //////////////////////////////////
 
   if (isLoading) {
-    return 'Loading ...';
+    return 'Loading...';
   } else {
     return (
       <div className={styles.pageContainer}>
@@ -149,6 +149,7 @@ export default function App() {
                 <div
                   className={styles.guestContainer}
                   key={`guest--${guest.id}`}
+                  data-test-id="guest"
                 >
                   <div>
                     <input
@@ -182,12 +183,12 @@ export default function App() {
             )}
           </div>
         </div>
-        <div className={styles.bottomContainer}>
+        {/* <div className={styles.bottomContainer}>
           <button>Clear Guest List </button>
           <button>Show Attending Guests</button>
           <button>Show Non-Attending Guests</button>
           <button>Reset Filter</button>
-        </div>
+        </div> */}
       </div>
     );
   }
