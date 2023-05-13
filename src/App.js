@@ -81,7 +81,11 @@ export default function App() {
         method: 'DELETE',
       });
       const deletedGuest = await response.json();
-      setGuestList(deletedGuest);
+      const currentGuestlist = [...guestList];
+      const newGuestlist = currentGuestlist.filter(
+        (guest) => guest.id !== deletedGuest.id,
+      );
+      setGuestList(newGuestlist);
     };
     deleteGuest().catch((error) => {
       console.error(error);
@@ -102,7 +106,7 @@ export default function App() {
     return (
       <div className={styles.pageContainer}>
         <div className={styles.formContainer} data-test-id="guest">
-          <h1>Party Guest List</h1>
+          <h1> 🍾 Party Guest List 🎉</h1>
           {/* Input */}
           <form data-test-id="guest" onSubmit={handleSubmit}>
             <label>
@@ -166,6 +170,12 @@ export default function App() {
               );
             })}
           </div>
+        </div>
+        <div className={styles.bottomContainer}>
+          <button>Clear Guest List </button>
+          <button>Show Attending Guests</button>
+          <button>Show Non-Attending Guests</button>
+          <button>Reset Filter</button>
         </div>
       </div>
     );
