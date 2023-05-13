@@ -23,7 +23,7 @@
   }
 
   form {
-    width: 500px;
+    // width: 500px;
     min-height: 50px;
     display: flex;
     align-items: center;
@@ -37,21 +37,21 @@
 
     label {
       color: #fff;
-      font-size: 1px;
-      width: 45%;
+      font-size: 0.1px;
+    }
 
-      input {
-        padding-left: 16px;
-        height: 30px;
-        font-size: 1rem;
-        border: none;
-        outline: none;
-      }
+    input {
+      padding-left: 16px;
+      height: 30px;
+      font-size: 1rem;
+      border: none;
+      outline: none;
+      width: 210px;
     }
 
     button {
       height: 100%;
-      width: 100px;
+      width: 80px;
       border: none;
       background-color: #1e82b081;
       cursor: pointer;

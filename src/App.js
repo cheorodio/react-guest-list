@@ -116,7 +116,7 @@ export default function App() {
           <form data-test-id="guest" onSubmit={handleSubmit}>
             <label htmlFor="First name">First name</label>
             <input
-              id="first name"
+              id="First name"
               value={firstName}
               placeholder="First name"
               disabled={isLoading}
