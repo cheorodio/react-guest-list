@@ -7,7 +7,7 @@ export default function App() {
   const [guestList, setGuestList] = useState([]);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const baseUrl = 'http://localhost:4000';
 
@@ -114,13 +114,17 @@ export default function App() {
         <h1>🍾 Party Guest List 🎉</h1>
         {isLoading ? <div>Loading...</div> : ''}
         {/* Input */}
-        <form data-test-id="guest" onSubmit={handleSubmit}>
+        <form
+          data-test-id="guest"
+          onSubmit={handleSubmit}
+          disabled={!isLoading}
+        >
           <label>
             First name
             <input
               value={firstName}
               placeholder="First name"
-              disabled={isLoading ? true : false}
+              disabled={isLoading}
               onKeyDown={handleEnter}
               onChange={(event) => {
                 setFirstName(event.currentTarget.value);
@@ -132,7 +136,7 @@ export default function App() {
             <input
               value={lastName}
               placeholder="Last name"
-              disabled={isLoading ? true : false}
+              disabled={isLoading}
               onChange={(event) => {
                 setLastName(event.currentTarget.value);
               }}
