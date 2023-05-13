@@ -104,15 +104,15 @@ export default function App() {
 
   // //////////////////////////////////
 
-  if (isLoading) {
-    return 'Loading...';
-  }
+  // if (isLoading) {
+  //   return 'Loading...';
+  // }
 
   return (
     <div className={styles.pageContainer}>
       <div className={styles.formContainer} data-test-id="guest">
         <h1>🍾 Party Guest List 🎉</h1>
-
+        {isLoading ? <div>Loading...</div> : ''}
         {/* Input */}
         <form data-test-id="guest" onSubmit={handleSubmit}>
           <label htmlFor="firstName">First name</label>
@@ -120,7 +120,7 @@ export default function App() {
             id="firstName"
             value={firstName}
             placeholder="First name"
-            // disabled={isLoading}
+            disabled={isLoading}
             onKeyDown={handleEnter}
             onChange={(event) => {
               setFirstName(event.currentTarget.value);
@@ -131,7 +131,7 @@ export default function App() {
             id="lastName"
             value={lastName}
             placeholder="Last name"
-            // disabled={isLoading}
+            disabled={isLoading}
             onChange={(event) => {
               setLastName(event.currentTarget.value);
             }}
