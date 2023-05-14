@@ -104,21 +104,17 @@ export default function App() {
 
   // //////////////////////////////////
 
-  // if (isLoading) {
-  //   return 'Loading...';
-  // }
+  if (isLoading) {
+    return 'Loading...';
+  }
 
   return (
     <div className={styles.pageContainer}>
       <div className={styles.formContainer} data-test-id="guest">
         <h1>🍾 Party Guest List 🎉</h1>
-        {isLoading ? <div>Loading...</div> : ''}
+        {/* {isLoading ? <p>Loading...</p> : ''} */}
         {/* Input */}
-        <form
-          data-test-id="guest"
-          onSubmit={handleSubmit}
-          disabled={!isLoading}
-        >
+        <form data-test-id="guest" onSubmit={handleSubmit}>
           <label>
             First name
             <input
@@ -145,6 +141,7 @@ export default function App() {
           <button>Add Guest</button>
         </form>
 
+        {/* ======================================== */}
         {/* Output */}
         <div className={styles.outputContainer} data-test-id="guest">
           {guestList.length === 0 ? (
