@@ -104,15 +104,14 @@ export default function App() {
 
   // //////////////////////////////////
 
-  if (isLoading) {
-    return 'Loading...';
-  }
+  // if (isLoading) {
+  //   return 'Loading...';
+  // }
 
   return (
     <div className={styles.pageContainer}>
       <div className={styles.formContainer} data-test-id="guest">
         <h1>🍾 Party Guest List 🎉</h1>
-        {/* {isLoading ? <p>Loading...</p> : ''} */}
         {/* Input */}
         <form data-test-id="guest" onSubmit={handleSubmit}>
           <label>
@@ -138,8 +137,10 @@ export default function App() {
               }}
             />
           </label>
-          <button>Add Guest</button>
+          <button disabled={isLoading}>Add Guest</button>
         </form>
+
+        {isLoading ? <p>Loading...</p> : ''}
 
         {/* ======================================== */}
         {/* Output */}
