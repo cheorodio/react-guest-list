@@ -72,9 +72,7 @@ export default function App() {
       return i.id !== updatedGuest.id;
     });
     setGuestList([...guestList], updatedGuestList);
-    getGuestList().catch(() =>
-      console.log('changing attendance status went wrong'),
-    );
+    getGuestList().catch(() => console.log('Error'));
   }
 
   // //////////////////////////////////
@@ -96,11 +94,11 @@ export default function App() {
     });
   }
 
-  useEffect(() => {
-    if (guestList.length > 0) {
-      setIsLoading(false);
-    }
-  }, [guestList]);
+  // useEffect(() => {
+  //   if (guestList.length > 0) {
+  //     setIsLoading(true);
+  //   }
+  // }, [guestList]);
 
   // //////////////////////////////////
 
@@ -113,7 +111,7 @@ export default function App() {
       <div className={styles.formContainer} data-test-id="guest">
         <h1>🍾 Party Guest List 🎉</h1>
         {/* Input */}
-        <form onSubmit={handleSubmit} disabled={!isLoading}>
+        <form onSubmit={handleSubmit}>
           <label>
             First name
             <input
