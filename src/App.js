@@ -113,13 +113,13 @@ export default function App() {
       <div className={styles.formContainer} data-test-id="guest">
         <h1>🍾 Party Guest List 🎉</h1>
         {/* Input */}
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} disabled={isLoading}>
           <label>
             First name
             <input
               value={firstName}
               placeholder="First name"
-              disabled={isLoading}
+              // disabled={isLoading}
               onKeyDown={handleEnter}
               onChange={(event) => {
                 setFirstName(event.currentTarget.value);
@@ -131,13 +131,13 @@ export default function App() {
             <input
               value={lastName}
               placeholder="Last name"
-              disabled={isLoading}
+              // disabled={isLoading}
               onChange={(event) => {
                 setLastName(event.currentTarget.value);
               }}
             />
           </label>
-          <button disabled={isLoading}>Add Guest</button>
+          <button>Add Guest</button>
         </form>
 
         {/* ==================Output====================== */}
