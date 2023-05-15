@@ -146,7 +146,7 @@ export default function App() {
         {isLoading ? (
           <div>Loading...</div>
         ) : (
-          <div className={styles.outputContainer} data-test-id="guest">
+          <div className={styles.outputContainer}>
             {guestList.length === 0 ? (
               <p>✏️ Guest list is empty, please enter a name</p>
             ) : (
