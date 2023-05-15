@@ -13,18 +13,16 @@ export default function App() {
   const baseUrl = 'https://1fb87be3-ae42-40dc-ba1f-6356d68c8c57.id.repl.co';
 
   useEffect(() => {
-    // if (guestList.length > 0) {
     setIsLoading(false);
-    // }
   }, [guestList]);
 
   // /////////////////////////////////
   // Getting all guests
   async function getGuestList() {
+    setIsLoading(true);
     const response = await fetch(`${baseUrl}/guests`);
     const allGuestsData = await response.json();
-    setGuestList(allGuestsData);
-    setIsLoading(true); // review rhis part
+    setGuestList([...allGuestsData]);
   }
   useEffect(() => {
     getGuestList().catch((error) => console.log(error));
