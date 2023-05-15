@@ -15,10 +15,12 @@ I used React and SASS to develop this project
 
 ## Setup 💻
 - Download or clone the repository <br/>
-- Frontend: Run pnpm start
+- Run pnpm start in terminal
   - This runs the app in the development mode.
   - Open http://localhost:3000 to view it in your browser.
   - The page will reload when you make changes.
+- Access the API: 
+  - Open [Replit API](https://replit.com/@cheorodio/express-guest-list-api-memory-data-store) then run the application using the green Run button at the top center of the screen.
 
 ## Credits 📝
 This is a React project I did at [upleveled](https://github.com/upleveled) bootcamp as part of the Spring '23 cohort.
