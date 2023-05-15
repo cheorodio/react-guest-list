@@ -11,13 +11,19 @@ export default function App() {
 
   const baseUrl = 'http://localhost:4000';
 
+  useEffect(() => {
+    // if (guestList.length > 0) {
+    setIsLoading(false);
+    // }
+  }, [guestList]);
+
   // /////////////////////////////////
   // Getting all guests
   async function getGuestList() {
     const response = await fetch(`${baseUrl}/guests`);
     const allGuestsData = await response.json();
     setGuestList(allGuestsData);
-    setIsLoading(false);
+    // setIsLoading(false); // review rhis part
   }
   useEffect(() => {
     getGuestList().catch((error) => console.log(error));
@@ -93,12 +99,6 @@ export default function App() {
       console.error(error);
     });
   }
-
-  // useEffect(() => {
-  //   if (guestList.length > 0) {
-  //     setIsLoading(true);
-  //   }
-  // }, [guestList]);
 
   // //////////////////////////////////
 
