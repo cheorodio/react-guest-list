@@ -112,7 +112,7 @@ export default function App() {
 
   return (
     <div className={styles.pageContainer}>
-      <div className={styles.formContainer} data-test-id="guest">
+      <div className={styles.formContainer}>
         <h1>🍾 Party Guest List 🎉</h1>
         {/* ==================Input====================== */}
         <form onSubmit={handleSubmit}>
@@ -176,7 +176,7 @@ export default function App() {
                   </p>
 
                   <button
-                    aria-label={`remove ${guest.firstName}${guest.lastName}`}
+                    aria-label={`Remove ${guest.firstName}${guest.lastName}`}
                     onClick={() => {
                       handleDeleteGuest(guest.id);
                     }}
