@@ -9,7 +9,8 @@ export default function App() {
   const [lastName, setLastName] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
-  const baseUrl = 'http://localhost:4000';
+  // const baseUrl = 'http://localhost:4000';
+  const baseUrl = 'https://1fb87be3-ae42-40dc-ba1f-6356d68c8c57.id.repl.co';
 
   useEffect(() => {
     // if (guestList.length > 0) {
@@ -110,7 +111,7 @@ export default function App() {
     <div className={styles.pageContainer}>
       <div className={styles.formContainer} data-test-id="guest">
         <h1>🍾 Party Guest List 🎉</h1>
-        {/* Input */}
+        {/* ==================Input====================== */}
         <form onSubmit={handleSubmit}>
           <label>
             First name
@@ -189,7 +190,7 @@ export default function App() {
           <button>Clear Guest List </button>
           <button>Show Attending Guests</button>
           <button>Show Non-Attending Guests</button>
-          <button>Reset Filter</button>
+          <button>Reset Filter</button>  // use filter method for this
         </div> */}
     </div>
   );
