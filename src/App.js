@@ -113,7 +113,7 @@ export default function App() {
   return (
     <div className={styles.pageContainer}>
       <div className={styles.formContainer}>
-        <h1>🍾 Party Guest List 🎉</h1>
+        <h1>Party Guest List</h1>
         {/* ==================Input====================== */}
         <form onSubmit={handleSubmit}>
           <label>
@@ -148,7 +148,7 @@ export default function App() {
         ) : (
           <div className={styles.outputContainer}>
             {guestList.length === 0 ? (
-              <p>✏️ Guest list is empty, please enter a name</p>
+              <p>Guest list is empty, please enter a name</p>
             ) : (
               guestList.map((guest) => (
                 <div
