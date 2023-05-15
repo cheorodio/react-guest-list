@@ -103,9 +103,9 @@ export default function App() {
 
   // //////////////////////////////////
 
-  if (isLoading) {
-    return 'Loading...';
-  }
+  // if (isLoading) {
+  //   return 'Loading...';
+  // }
 
   return (
     <div className={styles.pageContainer}>
@@ -123,7 +123,7 @@ export default function App() {
               onChange={(event) => {
                 setFirstName(event.currentTarget.value);
               }}
-            />
+              />
           </label>
           <label>
             Last name
@@ -134,15 +134,15 @@ export default function App() {
               onChange={(event) => {
                 setLastName(event.currentTarget.value);
               }}
-            />
+              />
           </label>
           <button disabled={isLoading}>Add Guest</button>
         </form>
 
         {/* ==================Output====================== */}
-        {/* {isLoading ? (
-          <p>Loading...</p>
-        ) : ( */}
+{isLoading ? (
+                <p> Loading...</p>
+              ) : (
         <div className={styles.outputContainer} data-test-id="guest">
           {guestList.length === 0 ? (
             <p>✏️ Guest list is empty, please enter a name</p>
@@ -184,7 +184,7 @@ export default function App() {
             ))
           )}
         </div>
-        {/* )} */}
+        )}
       </div>
       {/* <div className={styles.bottomContainer}>
           <button>Clear Guest List </button>
