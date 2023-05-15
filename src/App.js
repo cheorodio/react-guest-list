@@ -76,8 +76,8 @@ export default function App() {
       body: JSON.stringify({ attending: !status }),
     });
     const updatedGuest = await response.json();
-    const updatedGuestList = guestList.filter((i) => {
-      return i.id !== updatedGuest.id;
+    const updatedGuestList = guestList.filter((index) => {
+      return index.id !== updatedGuest.id;
     });
     setGuestList([...guestList], updatedGuestList);
     getGuestList().catch(() => console.log('Error'));
