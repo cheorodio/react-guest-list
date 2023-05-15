@@ -24,7 +24,7 @@ export default function App() {
     const response = await fetch(`${baseUrl}/guests`);
     const allGuestsData = await response.json();
     setGuestList(allGuestsData);
-    // setIsLoading(false); // review rhis part
+    setIsLoading(true); // review rhis part
   }
   useEffect(() => {
     getGuestList().catch((error) => console.log(error));
@@ -45,12 +45,15 @@ export default function App() {
       }),
     });
     const createdGuest = await response.json();
-    return createdGuest;
+    const newGuestList = [...guestList, createdGuest];
+    setGuestList(newGuestList);
+    setFirstName('');
+    setLastName('');
   }
 
   async function handleSubmit(event) {
-    await newGuest();
     event.preventDefault();
+    await newGuest();
   }
 
   // /////////////////////////////////
@@ -103,6 +106,8 @@ export default function App() {
 
   // //////////////////////////////////
 
+  // ////////////////
+
   // if (isLoading) {
   //   return 'Loading...';
   // }
@@ -123,7 +128,7 @@ export default function App() {
               onChange={(event) => {
                 setFirstName(event.currentTarget.value);
               }}
-              />
+            />
           </label>
           <label>
             Last name
@@ -134,64 +139,58 @@ export default function App() {
               onChange={(event) => {
                 setLastName(event.currentTarget.value);
               }}
-              />
+            />
           </label>
           <button disabled={isLoading}>Add Guest</button>
         </form>
 
         {/* ==================Output====================== */}
-{isLoading ? (
-                <p> Loading...</p>
-              ) : (
-        <div className={styles.outputContainer} data-test-id="guest">
-          {guestList.length === 0 ? (
-            <p>✏️ Guest list is empty, please enter a name</p>
-          ) : (
-            guestList.map((guest) => (
-              <div
-                className={styles.guestContainer}
-                key={`guest--${guest.id}`}
-                data-test-id="guest"
-              >
-                <div>
-                  <input
-                    aria-label={`attenting ${guest.firstName} ${guest.lastName}`}
-                    type="checkbox"
-                    checked={guest.attending}
-                    onChange={() => {
-                      updateGuest(guest.id, guest.attending).catch((error) =>
-                        console.log(error),
-                      );
-                    }}
-                  />
-                  <span>
-                    {guest.attending === true ? 'attending' : 'not attending'}
-                  </span>
-                </div>
-                <p>
-                  {guest.firstName} {guest.lastName}
-                </p>
-
-                <button
-                  aria-label={`remove ${guest.firstName}${guest.lastName}`}
-                  onClick={() => {
-                    handleDeleteGuest(guest.id);
-                  }}
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : (
+          <div className={styles.outputContainer} data-test-id="guest">
+            {guestList.length === 0 ? (
+              <p>✏️ Guest list is empty, please enter a name</p>
+            ) : (
+              guestList.map((guest) => (
+                <div
+                  className={styles.guestContainer}
+                  key={`guest--${guest.id}`}
+                  data-test-id="guest"
                 >
-                  <AiOutlineCloseCircle className={styles.closeButtonIcon} />
-                </button>
-              </div>
-            ))
-          )}
-        </div>
+                  <div>
+                    <input
+                      aria-label={`attenting ${guest.firstName} ${guest.lastName}`}
+                      type="checkbox"
+                      checked={guest.attending}
+                      onChange={() => {
+                        updateGuest(guest.id, guest.attending).catch((error) =>
+                          console.log(error),
+                        );
+                      }}
+                    />
+                    <span>
+                      {guest.attending === true ? 'attending' : 'not attending'}
+                    </span>
+                  </div>
+                  <p>
+                    {guest.firstName} {guest.lastName}
+                  </p>
+
+                  <button
+                    aria-label={`remove ${guest.firstName}${guest.lastName}`}
+                    onClick={() => {
+                      handleDeleteGuest(guest.id);
+                    }}
+                  >
+                    <AiOutlineCloseCircle className={styles.closeButtonIcon} />
+                  </button>
+                </div>
+              ))
+            )}
+          </div>
         )}
       </div>
-      {/* <div className={styles.bottomContainer}>
-          <button>Clear Guest List </button>
-          <button>Show Attending Guests</button>
-          <button>Show Non-Attending Guests</button>
-          <button>Reset Filter</button>  // use filter method for this
-        </div> */}
     </div>
   );
 }
