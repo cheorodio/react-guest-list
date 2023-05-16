@@ -4,7 +4,7 @@
 This guest list web app is a React project that allows you to keep track of your party attendees. You can add guests, remove them and edit their attendance status.
 
 ## Demo link 🔗
-Access my site at [React Guest List](https://react-guest-list-project.netlify.app/)
+Access my site at [React Guest List](https://react-guest-list-project.netlify.app/) <br/>
 Please run [this API](https://replit.com/@cheorodio/express-guest-list-api-memory-data-store) for the app to work. Simply click the green RUN button at top centre of the screen.
 
 ## Screenshots 📷
