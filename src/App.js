@@ -9,7 +9,6 @@ export default function App() {
   const [lastName, setLastName] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
-  // const baseUrl = 'http://localhost:4000';
   const baseUrl = 'https://1fb87be3-ae42-40dc-ba1f-6356d68c8c57.id.repl.co';
 
   useEffect(() => {
@@ -104,17 +103,12 @@ export default function App() {
 
   // //////////////////////////////////
 
-  // ////////////////
-
-  // if (isLoading) {
-  //   return 'Loading...';
-  // }
-
   return (
     <div className={styles.pageContainer}>
       <div className={styles.formContainer}>
-        <h1>Party Guest List</h1>
-        {/* ==================Input====================== */}
+        <h1>🍾 Party Guest List 🎉</h1>
+
+        {/* ==================Input form====================== */}
         <form onSubmit={handleSubmit}>
           <label>
             First name
@@ -142,13 +136,13 @@ export default function App() {
           <button disabled={isLoading}>Add Guest</button>
         </form>
 
-        {/* ==================Output====================== */}
+        {/* ================== Output ====================== */}
         {isLoading ? (
           <div>Loading...</div>
         ) : (
           <div className={styles.outputContainer}>
             {guestList.length === 0 ? (
-              <p>Guest list is empty, please enter a name</p>
+              <p>✏️ Guest list is empty, please enter a name</p>
             ) : (
               guestList.map((guest) => (
                 <div
